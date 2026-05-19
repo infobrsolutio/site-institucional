@@ -1048,6 +1048,20 @@ section {
   outline: none;
 }
 
+.contact-form select {
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+.contact-form option {
+  color: #f7fbff;
+  background: #07172b;
+}
+
+.contact-form option:disabled {
+  color: #8fa2bb;
+}
+
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
