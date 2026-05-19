@@ -385,18 +385,17 @@ function App() {
                 E-mail
                 <input name="email" type="email" autoComplete="email" />
               </label>
-              <label>
-                Tipo de projeto
-                <select name="tipo-de-projeto" defaultValue="">
-                  <option value="" disabled>Selecione uma opção</option>
-                  <option>Software sob medida</option>
-                  <option>Hardware ou eletrônico</option>
-                  <option>Automação</option>
-                  <option>IA, dados ou dashboard</option>
-                  <option>Infraestrutura, VPS ou deploy</option>
-                  <option>Projeto especial</option>
-                </select>
-              </label>
+              <div className="project-type-field">
+                <span>Tipo de projeto</span>
+                <div className="project-options">
+                  <label><input type="radio" name="tipo-de-projeto" value="Software sob medida" />Software</label>
+                  <label><input type="radio" name="tipo-de-projeto" value="Hardware ou eletrônico" />Hardware</label>
+                  <label><input type="radio" name="tipo-de-projeto" value="Automação" />Automação</label>
+                  <label><input type="radio" name="tipo-de-projeto" value="IA, dados ou dashboard" />IA/Dados</label>
+                  <label><input type="radio" name="tipo-de-projeto" value="Infraestrutura, VPS ou deploy" />Infra/VPS</label>
+                  <label><input type="radio" name="tipo-de-projeto" value="Projeto especial" />Especial</label>
+                </div>
+              </div>
               <label className="full">
                 Mensagem
                 <textarea name="mensagem" rows="5" />
