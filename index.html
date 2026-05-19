@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>INFoBR Solutio</title>
+  <meta name="description" content="INFoBR Solutio - infraestrutura, automacao e tecnologia com simplicidade.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0e1116;
+      --panel: #151a22;
+      --text: #f5f7fb;
+      --muted: #aeb8c8;
+      --line: #273142;
+      --accent: #23c483;
+      --accent-2: #46a3ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    header,
+    main,
+    footer {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #061014;
+      font-weight: 900;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    main {
+      display: grid;
+      align-content: center;
+      gap: 42px;
+      padding: 72px 0;
+    }
+
+    .hero {
+      max-width: 820px;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: .08em;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 650px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      color: #061014;
+      background: var(--accent);
+      font-weight: 800;
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: transparent;
+      border-color: var(--line);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .item {
+      min-height: 156px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .item h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 26px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      header,
+      footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        flex-wrap: wrap;
+      }
+
+      main {
+        padding: 52px 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand" aria-label="INFoBR Solutio">
+        <span class="mark">IS</span>
+        <span>INFoBR Solutio</span>
+      </div>
+      <nav aria-label="Navegacao principal">
+        <span>Infraestrutura</span>
+        <span>Automacao</span>
+        <span>Suporte</span>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="title">
+        <p class="eyebrow">Complex made simple.</p>
+        <h1 id="title">Tecnologia clara para negocios que precisam seguir em frente.</h1>
+        <p class="subtitle">A INFoBR Solutio cria e opera infraestrutura digital simples, segura e eficiente para pequenas empresas, projetos independentes e operacoes em crescimento.</p>
+        <div class="actions">
+          <a class="button" href="mailto:contato@infobrsolutio.com.br">Fale conosco</a>
+          <a class="button secondary" href="#servicos">Ver servicos</a>
+        </div>
+      </section>
+
+      <section class="grid" id="servicos" aria-label="Servicos">
+        <article class="item">
+          <h2>Infraestrutura</h2>
+          <p>Servidores, DNS, seguranca, backups e publicacao de sistemas com foco em estabilidade e custo controlado.</p>
+        </article>
+        <article class="item">
+          <h2>Automacao</h2>
+          <p>Fluxos, integracoes e ferramentas para reduzir tarefas repetitivas e deixar o trabalho mais previsivel.</p>
+        </article>
+        <article class="item">
+          <h2>Suporte tecnico</h2>
+          <p>Organizacao, manutencao e evolucao de ambientes digitais sem transformar tudo em complicacao.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>INFoBR Solutio</span>
+      <span>2026 - Complex made simple.</span>
+    </footer>
+  </div>
+</body>
+</html>
