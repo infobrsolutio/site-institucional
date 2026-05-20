@@ -1,90 +1,116 @@
 import './styles.css';
+import {
+  BarChart3,
+  BrainCircuit,
+  CircuitBoard,
+  MonitorCog,
+  Network,
+  Workflow,
+} from 'lucide-react';
+
+const solutionIcons = {
+  system: MonitorCog,
+  automation: Workflow,
+  integration: Network,
+  ai: BrainCircuit,
+  iot: CircuitBoard,
+  data: BarChart3,
+};
+
+const painCards = [
+  {
+    title: 'Processos manuais demais',
+    text: 'Rotinas repetitivas, planilhas soltas e retrabalho consomem tempo que poderia estar gerando resultado.',
+  },
+  {
+    title: 'Sistemas que não conversam',
+    text: 'Dados ficam espalhados, equipes perdem contexto e a gestão não enxerga a operação em tempo real.',
+  },
+  {
+    title: 'Ideias travadas por falta técnica',
+    text: 'A empresa sabe o que precisa melhorar, mas precisa de quem transforme a necessidade em produto funcional.',
+  },
+  {
+    title: 'IA sem aplicacao pratica',
+    text: 'Existe vontade de usar inteligência artificial, mas falta clareza sobre onde ela gera ganho real no negócio.',
+  },
+];
 
 const solutionCards = [
   {
-    title: 'Software sob medida',
-    text: 'Sistemas web, aplicações desktop, APIs, plataformas digitais, SaaS, painéis administrativos e sistemas internos para operações reais.',
+    icon: 'system',
+    title: 'Sistema sob medida',
+    micro: 'Organize sua rotina do seu jeito',
+    text: 'Criamos sistemas web, plataformas internas e painéis para organizar sua rotina.',
+    result: 'Resultado: menos improviso, mais controle e operação pronta para crescer.',
   },
   {
-    title: 'Hardware e eletrônica',
-    text: 'Projetos eletrônicos, sensores, instrumentação, controle de relés, motores e integração entre dispositivos físicos e sistemas digitais.',
+    icon: 'automation',
+    title: 'Automação inteligente',
+    micro: 'Menos repetição, mais produtividade',
+    text: 'Automatizamos processos, planilhas e etapas repetitivas que tomam tempo.',
+    result: 'Resultado: menos retrabalho, mais velocidade e produtividade real.',
   },
   {
-    title: 'Automação de processos',
-    text: 'Fluxos inteligentes para reduzir tarefas manuais, conectar equipamentos e transformar rotinas repetitivas em processos controlados.',
+    icon: 'integration',
+    title: 'Integração de sistemas',
+    micro: 'Dados circulando sem retrabalho',
+    text: 'Conectamos APIs, bancos de dados, plataformas e equipamentos para a informação circular melhor.',
+    result: 'Resultado: dados integrados, menos erro manual e decisões mais rápidas.',
   },
   {
+    icon: 'ai',
     title: 'IA aplicada',
-    text: 'Inteligência artificial para análise de dados, apoio operacional, automação, classificação, relatórios e tomada de decisão.',
+    micro: 'Inteligência para operação real',
+    text: 'Aplicamos IA em atendimento, triagem, análise, relatórios, classificação e apoio operacional.',
+    result: 'Resultado: IA gerando ganho real, não só discurso bonito.',
   },
   {
-    title: 'Sistemas embarcados e IoT',
-    text: 'ESP32, ESP8266, STM32, Arduino, firmware, MQTT, TCP/IP, comunicação serial, interfaces locais e monitoramento em tempo real.',
+    icon: 'iot',
+    title: 'Hardware e IoT',
+    micro: 'Controle além da tela',
+    text: 'Desenvolvemos hardware, sensores, IoT, firmware e comunicação com sistemas digitais.',
+    result: 'Resultado: monitoramento, controle e automação fora da tela.',
   },
   {
+    icon: 'data',
     title: 'Dados e dashboards',
-    text: 'Bancos de dados, processamento de informações, indicadores, dashboards e relatórios para transformar dados espalhados em visão útil.',
-  },
-  {
-    title: 'Infraestrutura e VPS',
-    text: 'Hospedagem em VPS, DNS, SSL, Docker, Cloudflare, deploy, backups e monitoramento para manter sistemas publicados com segurança.',
-  },
-  {
-    title: 'Consultoria tecnológica',
-    text: 'Diagnóstico, arquitetura, prototipagem e orientação técnica para sair da ideia e chegar a uma solução funcional.',
+    micro: 'Decisão com clareza',
+    text: 'Criamos dashboards, indicadores e relatórios para transformar informações espalhadas em visão clara.',
+    result: 'Resultado: você entende o que está acontecendo e decide com mais segurança.',
   },
 ];
 
-const serviceGroups = [
-  'Desenvolvimento de sistemas web e desktop',
-  'APIs, integrações e banco de dados',
-  'Dashboards e painéis administrativos',
-  'Firmware, ESP32, STM32, Arduino e sensores',
-  'Automação de processos, máquinas e equipamentos',
-  'IA aplicada a negócios, dados e operação',
-  'Prototipagem e desenvolvimento de produtos',
-  'VPS, DNS, SSL, deploy, Docker, backups e monitoramento',
-];
-
-const audienceCards = [
-  'Empresas',
-  'Comércio',
-  'Indústria',
-  'Educação',
-  'Logística',
-  'Automação',
-  'Tecnologia',
-  'Projetos especiais',
+const useCases = [
+  'Sistema de gestão personalizado para operações específicas',
+  'Painel de indicadores para acompanhar vendas, produção ou atendimento',
+  'Automação de tarefas repetitivas entre planilhas, sistemas e equipes',
+  'Integração com APIs, bancos de dados, ERPs, CRMs ou plataformas externas',
+  'Controle e monitoramento com sensores, dispositivos e microcontroladores',
+  'IA para atendimento, triagem, classificação, análise e relatórios',
 ];
 
 const workSteps = [
-  ['01', 'NEED', 'Entendimento', 'Mapeamos a necessidade, o contexto do negócio e o resultado esperado.'],
-  ['02', 'SCAN', 'Diagnóstico técnico', 'Avaliamos sistemas, equipamentos, dados, infraestrutura, riscos e possibilidades.'],
-  ['03', 'MAP', 'Planejamento', 'Desenhamos uma solução proporcional, segura e preparada para evoluir.'],
-  ['04', 'DEV', 'Construção', 'Criamos software, hardware, automação, integrações ou protótipos conforme o projeto.'],
-  ['05', 'TEST', 'Testes', 'Validamos comportamento, dados, comunicação, segurança, operação e usabilidade.'],
-  ['06', 'SHIP', 'Entrega', 'Publicamos, documentamos e entregamos a solução pronta para uso.'],
-  ['07', 'UP', 'Evolução', 'Acompanhamos ajustes, melhorias, suporte e novas etapas do produto.'],
+  ['01', 'Diagnóstico', 'Entendemos o problema, a rotina da empresa e o resultado esperado.'],
+  ['02', 'Desenho da solução', 'Definimos escopo, prioridades, arquitetura e melhor caminho técnico.'],
+  ['03', 'Desenvolvimento', 'Construímos software, automação, integração, IA ou hardware conforme o projeto.'],
+  ['04', 'Entrega e evolução', 'Testamos, publicamos, ajustamos e acompanhamos as próximas melhorias.'],
 ];
 
-const differentials = [
-  'Visão completa: software + hardware',
+const trustSignals = [
+  'Software, hardware e automação no mesmo raciocínio',
   'Soluções sob medida para problemas reais',
-  'Técnica aplicada ao mundo real',
-  'Integração ponta a ponta',
-  'Experiência prática em sistemas, automação e embarcados',
-  'Clareza técnica para decisões melhores',
-  'Foco em resultado funcional',
-  'Tecnologia feita para operar, manter e evoluir',
+  'Projeto pensado para operar, manter e evoluir',
+  'Atendimento direto para entender contexto e prioridade',
+  'Clareza técnica para a empresa decidir com segurança',
+  'Foco em resultado prático, não em tecnologia decorativa',
 ];
 
 const heroCapabilities = [
-  ['</>', 'Software', 'Sistemas sob medida para o seu negócio'],
-  ['AI', 'Inteligência artificial', 'IA aplicada para resolver problemas reais'],
-  ['CPU', 'Hardware', 'Projetos eletrônicos e sistemas embarcados'],
-  ['API', 'Integração', 'Conectamos sistemas, dados e pessoas'],
-  ['AUTO', 'Automação', 'Processos inteligentes e eficiência real'],
-  ['DATA', 'Dados & IA', 'Dashboards, análises e decisões inteligentes'],
+  ['</>', 'Software', 'Sistemas criados para a sua operação'],
+  ['AUTO', 'Automação', 'Menos tarefas manuais e mais controle'],
+  ['AI', 'IA aplicada', 'Inteligencia artificial com uso real'],
+  ['API', 'Integração', 'Dados e sistemas trabalhando juntos'],
 ];
 
 function App() {
@@ -99,11 +125,11 @@ function App() {
             <span>INFoBR Solutio</span>
           </a>
           <nav className="nav-links">
-            <a href="#sobre">Sobre</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#metodo">Como trabalhamos</a>
-            <a href="#projetos">Projetos</a>
-            <a href="#contato" className="nav-cta">Fale conosco</a>
+            <a href="#dores">Problemas</a>
+            <a href="#servicos">Soluções</a>
+            <a href="#projetos">Exemplos</a>
+            <a href="#metodo">Como funciona</a>
+            <a href="#contato" className="nav-cta">Pedir diagnóstico</a>
           </nav>
         </div>
       </header>
@@ -124,15 +150,18 @@ function App() {
             <div className="poster-layout">
               <div className="poster-copy">
                 <h1>
-                  <span>Tecnologia</span>
-                  que transforma.
-                  <strong>Soluções</strong>
-                  que conectam.
+                  <span>Software e IA</span>
+                  para você
+                  <strong>operar melhor.</strong>
                 </h1>
                 <p className="lead">
-                  Desenvolvemos soluções completas e inteligentes para impulsionar negócios, automatizar processos e
-                  criar o futuro.
+                  Criamos sistemas, integrações, automações e projetos técnicos para reduzir trabalho
+                  manual, conectar processos e transformar problemas reais em tecnologia funcionando.
                 </p>
+                <div className="hero-actions">
+                  <a className="button primary" href="#contato">Pedir diagnóstico</a>
+                  <a className="button secondary" href="#servicos">Ver soluções</a>
+                </div>
                 <div className="accent-line" aria-hidden="true" />
                 <div className="capability-grid">
                   {heroCapabilities.map(([icon, title, text]) => (
@@ -147,11 +176,15 @@ function App() {
                 </div>
               </div>
 
-              <div className="poster-brand">
+              <div className="poster-brand" aria-label="Marca INFoBR Solutio">
                 <img src="/assets/logo-symbol-clean.png" alt="" />
                 <strong>INF<span>o</span>BR</strong>
                 <b>SOLUTIO</b>
                 <em>Complex made simple.</em>
+                <div className="hero-summary">
+                  <strong>Da ideia ao sistema em operação</strong>
+                  <p>Diagnóstico, desenvolvimento, integração, testes, entrega e evolução.</p>
+                </div>
                 <div className="tech-cubes" aria-hidden="true">
                   <span />
                   <span />
@@ -166,28 +199,122 @@ function App() {
               </div>
             </div>
 
-            <div className="hero-value-bar">
-              <div>
-                <span>→</span>
-                <p>Tecnologia com propósito. Soluções que <strong>geram valor.</strong></p>
-              </div>
-              <ul>
-                <li>Inovação</li>
-                <li>Resultados</li>
-                <li>Confiança</li>
-              </ul>
-            </div>
+          </div>
+        </section>
 
-            <div className="hero-actions poster-actions">
-              <a className="button primary" href="#contato">Fale sobre seu projeto</a>
-              <a className="button secondary" href="#servicos">Conheça nossas soluções</a>
+        <section className="pain-section" id="dores">
+          <div className="container">
+            <div className="section-head">
+              <p className="section-kicker">O que destrava negócio</p>
+              <h2>Se algum destes problemas aparece na sua empresa, tecnologia pode virar dinheiro.</h2>
+              <p>
+                A INFoBR entra onde a operação perde tempo, dados, controle ou oportunidade. Primeiro entendemos a dor;
+                depois criamos a solução proporcional para gerar ganho real.
+              </p>
             </div>
+            <div className="pain-grid">
+              {painCards.map((card) => (
+                <article className="pain-card" key={card.title}>
+                  <h3>{card.title}</h3>
+                  <p>{card.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-            <div className="poster-footerline">
-              <span>infobrsolutio.com.br</span>
-              <span>@infobrsolutio</span>
-              <span>Software, hardware, automação e IA</span>
+        <section className="band" id="servicos">
+          <div className="container">
+            <div className="section-head">
+              <p className="section-kicker">Escolha o que você quer resolver</p>
+              <h2>O caminho fica mais claro quando você reconhece o problema.</h2>
+              <p>
+                Em vez de começar pela tecnologia, começamos pelo que está travando sua rotina. Assim fica mais fácil
+                identificar onde a INFoBR pode entrar para gerar resultado.
+              </p>
             </div>
+            <div className="services-grid">
+              {solutionCards.map((card) => (
+                <article className="card solution-card" key={card.title} tabIndex="0">
+                  <div className="solution-front">
+                    <div className={`solution-visual ${card.icon}`} aria-hidden="true">
+                      {(() => {
+                        const Icon = solutionIcons[card.icon];
+                        return <Icon size={40} strokeWidth={1.8} />;
+                      })()}
+                    </div>
+                    <h3>{card.title}</h3>
+                    <p>{card.micro}</p>
+                  </div>
+                  <div className="solution-details">
+                    <p>{card.text}</p>
+                    <strong>{card.result}</strong>
+                    <a href="#contato">Avaliar meu caso</a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="projetos">
+          <div className="container">
+            <div className="section-head">
+              <p className="section-kicker">Exemplos práticos</p>
+              <h2>O cliente precisa visualizar o que pode contratar.</h2>
+              <p>
+                Mesmo quando o projeto é sob medida, alguns cenários aparecem com frequência. Estes exemplos ajudam a
+                identificar onde a INFoBR pode entrar rapidamente.
+              </p>
+            </div>
+            <div className="usecase-grid">
+              {useCases.map((item) => (
+                <div className="usecase-card" key={item}>{item}</div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="dark-section" id="metodo">
+          <div className="container">
+            <div className="section-head light">
+              <p className="section-kicker">Como funciona</p>
+              <h2>Um caminho simples para sair da conversa e chegar na solução funcionando.</h2>
+              <p>
+                Empresas compram melhor quando entendem o processo. Por isso, o trabalho é organizado para reduzir
+                incerteza, controlar escopo e entregar valor de forma clara.
+              </p>
+            </div>
+            <div className="process-grid">
+              {workSteps.map(([number, title, text]) => (
+                <article className="step" key={title}>
+                  <div className="step-top">
+                    <span>{number}</span>
+                  </div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="band">
+          <div className="container split reverse">
+            <div className="text-block">
+              <p className="section-kicker">Por que confiar</p>
+              <h2>A INFoBR combina visão técnica com necessidade de negócio.</h2>
+              <p>
+                O foco é entender o que precisa mudar na operação e construir tecnologia que faça sentido para o
+                momento da empresa, com base para crescer depois.
+              </p>
+              <a className="button primary inline-cta" href="#contato">Quero avaliar meu projeto</a>
+            </div>
+            <ul className="check-list">
+              {trustSignals.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -209,142 +336,23 @@ function App() {
                 integração hardware/software, IA e plataformas sob medida.
               </p>
               <p>
-                A nova fase, INFoBR Solutio, preserva a história da marca e a reposiciona para uma atuação mais
-                madura, tecnológica, empresarial e estratégica: entender necessidades reais, projetar caminhos práticos
-                e entregar soluções funcionais.
+                A fase INFoBR Solutio preserva a história da marca e reposiciona a empresa para uma atuação mais
+                madura, empresarial e estratégica: entender necessidades reais, projetar caminhos práticos e entregar
+                soluções funcionais.
               </p>
             </div>
-          </div>
-        </section>
-
-        <section className="band" id="servicos">
-          <div className="container">
-            <div className="section-head">
-              <p className="section-kicker">O que fazemos</p>
-              <h2>Software, hardware, automação e IA trabalhando juntos.</h2>
-              <p>
-                A INFoBR Solutio cria tecnologia sob medida para empresas que precisam resolver problemas técnicos,
-                integrar operações e transformar ideias em sistemas úteis.
-              </p>
-            </div>
-            <div className="services-grid">
-              {solutionCards.map((card) => (
-                <article className="card" key={card.title}>
-                  <h3>{card.title}</h3>
-                  <p>{card.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <div className="container stack">
-            <div className="stack-main">
-              <p className="section-kicker">Serviços detalhados</p>
-              <h2>Soluções completas para operações que precisam sair do improviso.</h2>
-              <p>
-                Atuamos desde a arquitetura e prototipagem até a publicação, documentação e evolução. O projeto pode
-                começar pequeno, mas já nasce com base técnica para crescer com segurança.
-              </p>
-              <div className="stack-tags" aria-label="Tecnologias e práticas">
-                <span className="tag">React</span>
-                <span className="tag">Python</span>
-                <span className="tag">C/C++</span>
-                <span className="tag">ESP32</span>
-                <span className="tag">STM32</span>
-                <span className="tag">MQTT</span>
-                <span className="tag">Docker</span>
-                <span className="tag">Linux</span>
-                <span className="tag">Cloudflare</span>
-              </div>
-            </div>
-            <div className="service-list">
-              {serviceGroups.map((service) => (
-                <div className="service-row" key={service}>{service}</div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="dark-section">
-          <div className="container">
-            <div className="section-head light">
-              <p className="section-kicker">Para quem atendemos</p>
-              <h2>Empresas e projetos que precisam de tecnologia aplicada de verdade.</h2>
-              <p>
-                Atendemos diferentes setores com soluções sob medida. Não atuamos em projetos médicos invasivos,
-                nucleares, ilegais, perigosos ou com risco humano, ambiental ou jurídico fora de controle.
-              </p>
-            </div>
-            <div className="audience-grid">
-              {audienceCards.map((item) => (
-                <div className="audience-card" key={item}>{item}</div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="metodo">
-          <div className="container">
-            <div className="section-head">
-              <p className="section-kicker">Como trabalhamos</p>
-              <h2>Um caminho claro para transformar necessidade em solução funcional.</h2>
-            </div>
-            <div className="process-grid">
-              {workSteps.map(([number, icon, title, text]) => (
-                <article className="step" key={title}>
-                  <div className="step-top">
-                    <span>{number}</span>
-                    <strong>{icon}</strong>
-                  </div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="band">
-          <div className="container split reverse">
-            <div className="text-block">
-              <p className="section-kicker">Diferenciais</p>
-              <h2>Técnica, produto e operação no mesmo raciocínio.</h2>
-              <p>
-                O foco não é vender tecnologia genérica. É entender o problema, escolher a arquitetura correta,
-                desenvolver com clareza e entregar algo que a empresa consiga usar, manter e evoluir.
-              </p>
-            </div>
-            <ul className="check-list">
-              {differentials.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section id="projetos">
-          <div className="container project-panel">
-            <div>
-              <p className="section-kicker">Projetos e experiência</p>
-              <h2>Experiência prática em plataformas, automação e integração.</h2>
-            </div>
-            <p>
-              A INFoBR Solutio carrega experiência em plataformas digitais, sistemas embarcados, interfaces de controle,
-              monitoramento, projetos eletrônicos, automação de observatórios, painéis, comunicação serial, IoT,
-              dashboards e soluções personalizadas. O portfólio público será organizado com cuidado, priorizando
-              projetos autorizados e descrições seguras.
-            </p>
           </div>
         </section>
 
         <section className="cta-section">
           <div className="container cta-wrap">
             <p className="section-kicker">Próximo passo</p>
-            <h2>Tem uma ideia, processo ou desafio técnico?</h2>
-            <p>A INFoBR Solutio pode ajudar a transformar isso em uma solução real.</p>
-            <a className="button primary" href="#contato">Fale com a INFoBR Solutio</a>
+            <h2>Tem um processo travando sua empresa?</h2>
+            <p>
+              Conte o que está acontecendo. A INFoBR avalia o problema e indica um caminho possível para transformar
+              isso em sistema, automação, integração, IA ou produto técnico.
+            </p>
+            <a className="button primary" href="#contato">Pedir diagnóstico do projeto</a>
           </div>
         </section>
 
@@ -352,10 +360,10 @@ function App() {
           <div className="container contact-wrap">
             <div className="contact-copy">
               <p className="section-kicker">Contato</p>
-              <h2>Conte sobre o seu projeto.</h2>
+              <h2>Fale sobre o que você quer resolver.</h2>
               <p>
-                Use o formulário ou fale pelo e-mail. Não inserimos telefone enquanto o número oficial da empresa não
-                estiver definido.
+                Quanto mais claro for o problema, mais rápido conseguimos indicar o melhor caminho: sistema, automação,
+                integração, IA, hardware ou uma combinação entre eles.
               </p>
               <div className="contact-list">
                 <a className="contact-link" href="mailto:contato@infobrsolutio.com.br">
@@ -365,10 +373,6 @@ function App() {
                 <a className="contact-link" href="https://www.instagram.com/infobrsolutio" target="_blank" rel="noreferrer">
                   <span>Instagram</span>
                   @infobrsolutio
-                </a>
-                <a className="contact-link" href="https://infobrsolutio.com.br">
-                  <span>Site</span>
-                  infobrsolutio.com.br
                 </a>
               </div>
             </div>
@@ -387,13 +391,13 @@ function App() {
               </label>
               <label>
                 Tipo de projeto
-                <input name="tipo-de-projeto" type="text" placeholder="Ex: software, automação, IA, infraestrutura..." />
+                <input name="tipo-de-projeto" type="text" placeholder="Ex: sistema, automação, IA, integração..." />
               </label>
               <label className="full">
-                Mensagem
+                Qual problema você quer resolver?
                 <textarea name="mensagem" rows="5" />
               </label>
-              <button className="button primary full" type="submit">Enviar mensagem</button>
+              <button className="button primary full" type="submit">Enviar pedido de diagnóstico</button>
             </form>
           </div>
         </section>
