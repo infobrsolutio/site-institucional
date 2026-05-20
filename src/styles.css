@@ -1126,7 +1126,7 @@ section {
   color: var(--paper);
   background:
     linear-gradient(90deg, rgba(3, 25, 54, .96), rgba(7, 95, 228, .72)),
-    url("/assets/logo-symbol-clean.png") right 34px center / 260px auto no-repeat;
+    url("../assets/logo-symbol-clean.png") right 34px center / 260px auto no-repeat;
   box-shadow: var(--shadow);
 }
 

@@ -1,4 +1,5 @@
 import './styles.css';
+import logoSymbol from '../assets/logo-symbol-clean.png';
 import {
   BarChart3,
   BrainCircuit,
@@ -121,7 +122,7 @@ function App() {
       <header className="site-header">
         <div className="container nav" aria-label="Navegação principal">
           <a className="brand" href="#inicio" aria-label="INFoBR Solutio">
-            <img src="/assets/logo-symbol-clean.png" alt="" />
+            <img src={logoSymbol} alt="" />
             <span>INFoBR Solutio</span>
           </a>
           <nav className="nav-links">
@@ -177,7 +178,7 @@ function App() {
               </div>
 
               <div className="poster-brand" aria-label="Marca INFoBR Solutio">
-                <img src="/assets/logo-symbol-clean.png" alt="" />
+                <img src={logoSymbol} alt="" />
                 <strong>INF<span>o</span>BR</strong>
                 <b>SOLUTIO</b>
                 <em>Complex made simple.</em>
@@ -321,7 +322,7 @@ function App() {
         <section className="about-section" id="sobre">
           <div className="container split">
             <div className="logo-panel">
-              <img src="/assets/logo-symbol-clean.png" alt="" />
+              <img src={logoSymbol} alt="" />
               <div className="logo-panel-copy">
                 <strong>INFoBR Solutio</strong>
                 <span>Complex made simple.</span>
@@ -406,7 +407,7 @@ function App() {
       <footer className="site-footer">
         <div className="container footer-grid">
           <div className="footer-logo">
-            <img src="/assets/logo-symbol-clean.png" alt="" />
+            <img src={logoSymbol} alt="" />
             <span>INFoBR Solutio</span>
           </div>
           <span>2026 - Complex made simple.</span>
