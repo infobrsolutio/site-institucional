@@ -63,6 +63,27 @@ app.post('/api/contact', async (request, response) => {
       ].join('\n'),
     });
 
+    await transporter.sendMail({
+      from: `"INFoBR Solutio" <${smtpFrom}>`,
+      to: email,
+      replyTo: contactEmail,
+      subject: 'Recebemos seu pedido de diagnóstico',
+      text: [
+        `Olá, ${nome}.`,
+        '',
+        'Recebemos seu pedido de diagnóstico pela INFoBR Solutio.',
+        'Vamos analisar as informações enviadas e responder em breve por este e-mail.',
+        '',
+        'Resumo enviado:',
+        `Empresa: ${empresa || '-'}`,
+        `Tipo de projeto: ${tipoProjeto || '-'}`,
+        '',
+        'Obrigado,',
+        'INFoBR Solutio',
+        'Complex made simple.',
+      ].join('\n'),
+    });
+
     return response.json({ message: 'Pedido enviado com sucesso.' });
   } catch (error) {
     console.error('Contact form delivery failed:', error);
