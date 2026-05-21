@@ -8,6 +8,7 @@ import {
   Network,
   Workflow,
 } from 'lucide-react';
+import { useState } from 'react';
 
 const solutionIcons = {
   system: MonitorCog,
@@ -115,7 +116,10 @@ const heroCapabilities = [
 ];
 
 function App() {
-  const handleContactSubmit = (event) => {
+  const [contactStatus, setContactStatus] = useState('idle');
+  const [contactMessage, setContactMessage] = useState('');
+
+  const handleContactSubmit = async (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -124,19 +128,29 @@ function App() {
     const email = formData.get('email')?.toString().trim();
     const tipoProjeto = formData.get('tipo-de-projeto')?.toString().trim();
     const mensagem = formData.get('mensagem')?.toString().trim();
-    const body = [
-      `Nome: ${nome || ''}`,
-      `Empresa: ${empresa || ''}`,
-      `E-mail: ${email || ''}`,
-      `Tipo de projeto: ${tipoProjeto || ''}`,
-      '',
-      'Problema que quero resolver:',
-      mensagem || '',
-    ].join('\n');
 
-    window.location.href = `mailto:atendimento@infobrsolutio.com.br?subject=${encodeURIComponent(
-      'Pedido de diagnóstico'
-    )}&body=${encodeURIComponent(body)}`;
+    setContactStatus('sending');
+    setContactMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, empresa, email, tipoProjeto, mensagem }),
+      });
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Não foi possível enviar agora.');
+      }
+
+      event.currentTarget.reset();
+      setContactStatus('success');
+      setContactMessage('Pedido enviado com sucesso. Retornaremos em breve.');
+    } catch (error) {
+      setContactStatus('error');
+      setContactMessage(error.message || 'Não foi possível enviar agora. Tente novamente em alguns minutos.');
+    }
   };
 
   return (
@@ -422,7 +436,14 @@ function App() {
                 Qual problema você quer resolver?
                 <textarea name="mensagem" rows="5" />
               </label>
-              <button className="button primary full" type="submit">Enviar pedido de diagnóstico</button>
+              <button className="button primary full" type="submit" disabled={contactStatus === 'sending'}>
+                {contactStatus === 'sending' ? 'Enviando...' : 'Enviar pedido de diagnóstico'}
+              </button>
+              {contactMessage ? (
+                <p className={`form-status full ${contactStatus === 'error' ? 'error' : 'success'}`}>
+                  {contactMessage}
+                </p>
+              ) : null}
             </form>
           </div>
         </section>
