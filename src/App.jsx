@@ -367,9 +367,9 @@ function App() {
                 integração, IA, hardware ou uma combinação entre eles.
               </p>
               <div className="contact-list">
-                <a className="contact-link" href="mailto:contato@infobrsolutio.com.br">
+                <a className="contact-link" href="mailto:atendimento@infobrsolutio.com.br">
                   <span>E-mail</span>
-                  contato@infobrsolutio.com.br
+                  atendimento@infobrsolutio.com.br
                 </a>
                 <a className="contact-link" href="https://www.instagram.com/infobrsolutio" target="_blank" rel="noreferrer">
                   <span>Instagram</span>
@@ -377,7 +377,7 @@ function App() {
                 </a>
               </div>
             </div>
-            <form className="contact-form" action="mailto:contato@infobrsolutio.com.br" method="post" encType="text/plain">
+            <form className="contact-form" action="mailto:atendimento@infobrsolutio.com.br" method="post" encType="text/plain">
               <label>
                 Nome
                 <input name="nome" type="text" autoComplete="name" />
