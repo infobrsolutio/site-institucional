@@ -115,6 +115,30 @@ const heroCapabilities = [
 ];
 
 function App() {
+  const handleContactSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const nome = formData.get('nome')?.toString().trim();
+    const empresa = formData.get('empresa')?.toString().trim();
+    const email = formData.get('email')?.toString().trim();
+    const tipoProjeto = formData.get('tipo-de-projeto')?.toString().trim();
+    const mensagem = formData.get('mensagem')?.toString().trim();
+    const body = [
+      `Nome: ${nome || ''}`,
+      `Empresa: ${empresa || ''}`,
+      `E-mail: ${email || ''}`,
+      `Tipo de projeto: ${tipoProjeto || ''}`,
+      '',
+      'Problema que quero resolver:',
+      mensagem || '',
+    ].join('\n');
+
+    window.location.href = `mailto:atendimento@infobrsolutio.com.br?subject=${encodeURIComponent(
+      'Pedido de diagnóstico'
+    )}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <>
       <a className="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -377,7 +401,7 @@ function App() {
                 </a>
               </div>
             </div>
-            <form className="contact-form" action="mailto:atendimento@infobrsolutio.com.br" method="post" encType="text/plain">
+            <form className="contact-form" onSubmit={handleContactSubmit}>
               <label>
                 Nome
                 <input name="nome" type="text" autoComplete="name" />
