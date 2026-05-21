@@ -122,7 +122,8 @@ function App() {
   const handleContactSubmit = async (event) => {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const nome = formData.get('nome')?.toString().trim();
     const empresa = formData.get('empresa')?.toString().trim();
     const email = formData.get('email')?.toString().trim();
@@ -144,12 +145,12 @@ function App() {
         throw new Error(data.message || 'Não foi possível enviar agora.');
       }
 
-      event.currentTarget.reset();
+      form.reset();
       setContactStatus('success');
-      setContactMessage('Pedido enviado com sucesso. Retornaremos em breve.');
+      setContactMessage('Recebemos seu pedido de diagnóstico. Vamos analisar as informações e responder em breve pelo e-mail informado.');
     } catch (error) {
       setContactStatus('error');
-      setContactMessage(error.message || 'Não foi possível enviar agora. Tente novamente em alguns minutos.');
+      setContactMessage(error.message || 'Não conseguimos enviar sua mensagem agora. Tente novamente em alguns minutos.');
     }
   };
 
@@ -441,7 +442,8 @@ function App() {
               </button>
               {contactMessage ? (
                 <p className={`form-status full ${contactStatus === 'error' ? 'error' : 'success'}`}>
-                  {contactMessage}
+                  <strong>{contactStatus === 'error' ? 'Mensagem não enviada' : 'Mensagem enviada'}</strong>
+                  <span>{contactMessage}</span>
                 </p>
               ) : null}
             </form>
