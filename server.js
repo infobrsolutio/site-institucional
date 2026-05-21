@@ -43,8 +43,10 @@ const buildLeadConfirmationHtml = ({ nome, empresa, tipoProjeto }) => {
         <td align="center">
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px; background:#0b1a2d; border:1px solid #1d3554; border-radius:8px; overflow:hidden;">
             <tr>
-              <td style="padding:28px; background:#f7fbff; text-align:center;">
-                <img src="https://infobrsolutio.com.br/assets/email-logo-horizontal.png" width="260" alt="INFoBR Solutio - Complex made simple." style="display:block; width:260px; max-width:100%; height:auto; margin:0 auto;">
+              <td style="padding:42px 28px 38px; background:#102033; background-image:linear-gradient(135deg,#14243a 0%,#0a1728 58%,#102d31 100%); text-align:center; border-bottom:1px solid #1d3554;">
+                <img src="https://infobrsolutio.com.br/assets/logo-symbol-clean.png" width="118" height="118" alt="" style="display:block; width:118px; height:118px; object-fit:contain; margin:0 auto 22px;">
+                <div style="font-size:32px; line-height:1.15; font-weight:800; color:#ffffff; letter-spacing:0;">INFoBR Solutio</div>
+                <div style="font-size:17px; line-height:1.5; color:#d7e6fb; font-style:italic; margin-top:6px;">Complex made simple.</div>
               </td>
             </tr>
             <tr>
